@@ -30,16 +30,16 @@ echo  $P
 
 # change DEFCONFIG to you are defconfig name or device codename
 
-DEFCONFIG="vendor/r5x_defconfig"
+DEFCONFIG="vendor/R5X_defconfig"
 
 # you can set you name or host name(optional)
 
-export KBUILD_BUILD_USER=
-export KBUILD_BUILD_HOST=
+export KBUILD_BUILD_USER=t.me@zetaxbyte
+export KBUILD_BUILD_HOST=Herobrine
 
 # change TC_DIR(directory) on where you clone proton-clang toolchain
 
-TC_DIR="/workspace/gitpod/proton-clang"
+TC_DIR="/workspace/zeta/proton-clang"
 
 # do not modify export PATCH it's been including with TC_DIR
 
