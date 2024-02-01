@@ -1,7 +1,6 @@
 #!/bin/bash
 # copy right by zetaxbyte
 # you can rich me on telegram t.me/@zetaxbyte
-# flags of proton clang
 
 cyan="\033[96m"
 green="\033[92m"
@@ -39,7 +38,7 @@ export KBUILD_BUILD_HOST=Herobrine
 
 # change TC_DIR(directory) on where you clone proton-clang toolchain
 
-TC_DIR="/workspace/zeta/proton-clang"
+TC_DIR="/workspace/zeta/clang-r498229b"
 
 # do not modify export PATCH it's been including with TC_DIR
 
@@ -48,7 +47,7 @@ export PATH="$TC_DIR/bin:$PATH"
 mkdir -p out
 make O=out ARCH=arm64 $DEFCONFIG
 
-make -j$(nproc --all) O=out ARCH=arm64 CC=clang AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee log.txt
+make -j$(nproc --all) O=out ARCH=arm64 CC=clang LD=ld.lld AR=llvm-ar AS=llvm-as NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnueabi- 2>&1 | tee log.txt
 
 if [ -f out/arch/arm64/boot/Image.gz ] ; then
     echo -e "$cyan===========================\033[0m"
